@@ -27,5 +27,10 @@ wss.on("connection", function(ws) {
     clearInterval(id)
   })
   
+  ws.on('message', function incoming(data) {
+    console.log(data);
+    console.log(JSON.stringify(data));
+  });
+  
   
 })
