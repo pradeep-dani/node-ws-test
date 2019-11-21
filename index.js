@@ -15,9 +15,7 @@ var wss = new WebSocketServer({server: server})
 console.log("websocket server created")
 
 wss.on("connection", function(ws) {
-  var id = setInterval(function() {
-    ws.send(JSON.stringify(new Date()), function() {  })
-  }, 1000)
+  
 
   console.log("websocket connection open")
   
@@ -30,6 +28,13 @@ wss.on("connection", function(ws) {
   ws.on('message', function incoming(data) {
     console.log(data);
     console.log(JSON.stringify(data));
+    
+    //var id = setInterval(function() {
+      
+   // }, 1000)
+    
+    ws.send(JSON.stringify(data) + ' -- Verified --', function() {  })
+    
   });
   
   
